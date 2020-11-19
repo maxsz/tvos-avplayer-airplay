@@ -54,7 +54,6 @@ class ViewController: UIViewController {
         self.enableAirPlay()
 		pv.player = player
         player.play()
-//        self.enableAirPlay()
     }
 
     func enableAirPlay() {
@@ -63,8 +62,8 @@ class ViewController: UIViewController {
 
         let audioSession = AVAudioSession.sharedInstance()
   		do {
-//    		try audioSession.setCategory(.playback, mode: .moviePlayback)
-            try audioSession.setCategory(.playback, mode: .default, policy: .default, options: [])
+    		try audioSession.setCategory(.playback, mode: .moviePlayback)
+//            try audioSession.setCategory(.playback, mode: .default, policy: .default, options: [])
             try audioSession.setActive(true)
         } catch {
         	print("Setting category to AVAudioSessionCategoryPlayback failed.")
@@ -74,7 +73,8 @@ class ViewController: UIViewController {
 	var player: AVPlayer?
 
     func createPlayer() -> AVPlayer {
-        let url = URL(string: "http://ndrfs-lh.akamaihd.net/i/ndrfs_hh@430231/master.m3u8?b=320-4000")!
+    	let url = URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8")!
+//        let url = URL(string: "http://ndrfs-lh.akamaihd.net/i/ndrfs_hh@430231/master.m3u8?b=320-4000")!
 //  		let url = URL(string: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_1920_18MG.mp4")!
 		let player = AVPlayer(url: url)
 
